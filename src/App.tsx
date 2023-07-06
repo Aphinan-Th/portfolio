@@ -1,35 +1,30 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./App.css";
+import EarthCanvas from "./components/earth";
+import { motion } from "framer-motion";
+import { slideIn } from "../src/utils/motion";
+import StarsCanvas from "./components/star";
+import Card from "./components/card";
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div style={{ position: "relative", width: "100vw", height: "90vh" }}>
+        <StarsCanvas />
+
+        <motion.div
+          variants={slideIn("right", "tween", 0.2, 1)}
+          style={{
+            display: "flex",
+            width: "100vw",
+            height: "100%",
+          }}
+        >
+          <Card />
+          <EarthCanvas />
+        </motion.div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

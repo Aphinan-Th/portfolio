@@ -10,7 +10,6 @@ function App() {
     <>
       <div style={{ position: "relative", width: "100vw", height: "90vh" }}>
         <StarsCanvas />
-
         <motion.div
           variants={slideIn("right", "tween", 0.2, 1)}
           style={{
